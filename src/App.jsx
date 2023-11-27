@@ -9,7 +9,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const handleTranslate = async () => {
-    const openaiApiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    const openaiApiKey = import.meta.env.REACT_APP_OPENAI_API_KEY;
 
     const messages = [
       {
