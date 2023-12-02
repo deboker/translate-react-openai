@@ -68,7 +68,11 @@ const App = () => {
 
           <div className="translate-container">
             <div className="input-box">
-              <h3>Your translation 👇</h3>
+              <h3>
+                {translatedText
+                  ? "Your translation 👇"
+                  : "Choose a language 👇"}
+              </h3>
             </div>
             {!translatedText ? (
               <div className="radio-group">
