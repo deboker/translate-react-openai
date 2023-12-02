@@ -14,7 +14,7 @@ const App = () => {
     const messages = [
       {
         role: "system",
-        content: `You are a translator from detected language from inputText language to language:${selectedLanguage}`,
+        content: `You are a translator from detected language from inputText language to language:${selectedLanguage} and when is ${!selectedLanguage} language write Please choose language!`,
       },
       {
         role: "user",
@@ -106,7 +106,7 @@ const App = () => {
               </div>
             ) : (
               <div className="translated-text">
-                <p>{translatedText}`</p>
+                <p>{translatedText}</p>
               </div>
             )}
           </div>
