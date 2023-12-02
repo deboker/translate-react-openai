@@ -47,11 +47,8 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <div
-        className="header-container"
-        style={{ backgroundImage: `url(${crazyParot})` }}
-      >
+    <div className="app" style={{ backgroundImage: `url(${crazyParot})` }}>
+      <div className="header-container">
         <h1>PollyGlot</h1>
         <p>Perfect Translation Every Time</p>
       </div>
