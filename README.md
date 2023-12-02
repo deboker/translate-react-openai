@@ -15,3 +15,7 @@ Technologies Used
 HTML, CSS, and React.
 OpenAI API.
 Vite for building and packaging.
+
+Challenges and Learning Points:
+Vite requires environment variables to be prefixed with VITE\_ and imported using import.meta.env.VITE_API KEY.
+Use React's useRef to focus on an element.
