@@ -1,10 +1,17 @@
-# React + Vite
+PollyGlot!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered poly-translator. The app is built with React and powered with OpenAI API.
 
-Currently, two official plugins are available:
+Live Application URL
+https://translate-react-openai.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-live: https://translate-react-openai.netlify.app/
+How to Use the Application
+User enters text to translate.
+User selects the language to translate to.
+User clicks translate.
+Translation should be displayed shortly.
+User can start over.
+Technologies Used
+HTML, CSS, and React.
+OpenAI API.
+Vite for building and packaging.
