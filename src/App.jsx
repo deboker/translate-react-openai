@@ -55,7 +55,7 @@ const App = () => {
         <h1>
           PollyGlot <br>OpenAI Translator</br>
         </h1>
-        <p>Perfect Translation Every Time</p>
+        <p>TRANSLATOR</p>
       </div>
       <div className="main-container">
         <div className="rectangle">
