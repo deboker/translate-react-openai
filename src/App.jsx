@@ -31,10 +31,10 @@ const App = () => {
 
       if (response && response.translation_text) {
         setTranslatedText(response.translation_text);
+        console.log(response);
       } else {
         setTranslatedText("Translation error. Please try again.");
       }
-      console.log(response);
     } catch (err) {
       console.error("Translation error:", err);
       setTranslatedText("Translation error. Please try again.");
@@ -52,7 +52,9 @@ const App = () => {
   return (
     <div className="app" style={{ backgroundImage: `url(${crazyParot})` }}>
       <div className="header-container">
-        <h1>PollyGlot</h1>
+        <h1>
+          PollyGlot <br>OpenAI Translator</br>
+        </h1>
         <p>Perfect Translation Every Time</p>
       </div>
       <div className="main-container">
