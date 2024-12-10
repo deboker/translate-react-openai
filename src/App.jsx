@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { HfInference } from "@huggingface/inference";
 
 import crazyParot from "./assets/crazy-parot.png";
 
 const App = () => {
   const [inputText, setInputText] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedInputLanguage, setSelectedInputLanguage] = useState("");
+  const [selectedTargetLanguage, setSelectedTargetLanguage] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleTranslate = async () => {
     try {
+      setLoading(true);
       const hf = new HfInference(import.meta.env.VITE_HF_TOKEN);
 
       const languageCodeMap = {
+        English: "en_XX",
         French: "fr_XX",
         Spanish: "es_XX",
         Japanese: "ja_XX",
@@ -24,8 +27,8 @@ const App = () => {
         model: "facebook/mbart-large-50-many-to-many-mmt",
         inputs: inputText,
         parameters: {
-          src_lang: "en_XX",
-          tgt_lang: languageCodeMap[selectedLanguage],
+          src_lang: languageCodeMap[selectedInputLanguage],
+          tgt_lang: languageCodeMap[selectedTargetLanguage],
         },
       });
 
@@ -45,7 +48,8 @@ const App = () => {
 
   const handleStartOver = () => {
     setInputText("");
-    setSelectedLanguage("");
+    setSelectedInputLanguage("");
+    setSelectedTargetLanguage("");
     setTranslatedText("");
   };
 
@@ -72,43 +76,89 @@ const App = () => {
           <div className="translate-container">
             <div className="input-box">
               <h3>
-                {translatedText
-                  ? "Your translation 👇"
-                  : "Choose a language 👇"}
+                {!translatedText
+                  ? "Choose input and target languages 👇"
+                  : "Your translation 👇"}
               </h3>
             </div>
             {!translatedText ? (
-              <div className="radio-group">
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    value="fr_XX"
-                    checked={selectedLanguage === "French"}
-                    onChange={() => setSelectedLanguage("French")}
-                  />
-                  French 🇫🇷
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    value="es_XX"
-                    checked={selectedLanguage === "Spanish"}
-                    onChange={() => setSelectedLanguage("Spanish")}
-                  />
-                  Spanish 🇪🇸
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="language"
-                    value="ja_XX"
-                    checked={selectedLanguage === "Japanese"}
-                    onChange={() => setSelectedLanguage("Japanese")}
-                  />
-                  Japanese 🇯🇵
-                </label>
+              <div className="language-selection">
+                <div className="radio-group">
+                  <h4>Input Language</h4>
+                  <label>
+                    <input
+                      type="radio"
+                      name="input-language"
+                      value="English"
+                      checked={selectedInputLanguage === "English"}
+                      onChange={() => setSelectedInputLanguage("English")}
+                    />
+                    English 🇺🇸
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="input-language"
+                      value="French"
+                      checked={selectedInputLanguage === "French"}
+                      onChange={() => setSelectedInputLanguage("French")}
+                    />
+                    French 🇫🇷
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="input-language"
+                      value="Spanish"
+                      checked={selectedInputLanguage === "Spanish"}
+                      onChange={() => setSelectedInputLanguage("Spanish")}
+                    />
+                    Spanish 🇪🇸
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="input-language"
+                      value="Japanese"
+                      checked={selectedInputLanguage === "Japanese"}
+                      onChange={() => setSelectedInputLanguage("Japanese")}
+                    />
+                    Japanese 🇯🇵
+                  </label>
+                </div>
+                <div className="radio-group">
+                  <h4>Target Language</h4>
+                  <label>
+                    <input
+                      type="radio"
+                      name="target-language"
+                      value="French"
+                      checked={selectedTargetLanguage === "French"}
+                      onChange={() => setSelectedTargetLanguage("French")}
+                    />
+                    French 🇫🇷
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="target-language"
+                      value="Spanish"
+                      checked={selectedTargetLanguage === "Spanish"}
+                      onChange={() => setSelectedTargetLanguage("Spanish")}
+                    />
+                    Spanish 🇪🇸
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="target-language"
+                      value="Japanese"
+                      checked={selectedTargetLanguage === "Japanese"}
+                      onChange={() => setSelectedTargetLanguage("Japanese")}
+                    />
+                    Japanese 🇯🇵
+                  </label>
+                </div>
               </div>
             ) : (
               <div className="translated-text">
