@@ -25,6 +25,7 @@ const App = () => {
         model: "facebook/mbart-large-50-many-to-many-mmt",
         inputs: inputText,
         parameters: {
+          src_lang: "auto", // Use 'auto' if your model supports auto-detection, otherwise set a default language like 'en_XX'
           tgt_lang: languageCodeMap[selectedTargetLanguage],
         },
       });
