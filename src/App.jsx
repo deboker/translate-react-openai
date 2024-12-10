@@ -53,7 +53,8 @@ const App = () => {
     <div className="app" style={{ backgroundImage: `url(${crazyParot})` }}>
       <div className="header-container">
         <h1>
-          PollyGlot <br>OpenAI Translator</br>
+          PollyGlot <br />
+          OpenAI Translator
         </h1>
         <p>TRANSLATOR</p>
       </div>
